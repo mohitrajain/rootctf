@@ -31,5 +31,5 @@ def play3(x):
 if __name__ == "__main__":
 
     x1, x2, x3 = 3, 1, 4 
-    in_data = "IAMDFLAG"
+    in_data = "NOVICEOL"
     print string.translate(in_data, play1(x1)) + play2(x2) + str(play3(x3))*3
