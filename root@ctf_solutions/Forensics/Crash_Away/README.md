@@ -6,6 +6,7 @@
 ```
 $ vim -r flag.txt
 ```
+Flag:- `rootctfvim_is_better_than_emacs`
 # Note
 
 * Alternatively, extract the lines in plaintext at the end of the swap file.
