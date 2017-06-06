@@ -41,4 +41,4 @@ corrupted(XXX) headers.
 
 ![Imgur](http://i.imgur.com/ADVnFCx.png)
 * Now just save it and decompress it with tar . You will get some .txt files, flag is hidden in one of those text files . 
-That's It XD. 
+That's It XD. Flag:- ctf{s0_w3_ain't_got_n00bs_here}
