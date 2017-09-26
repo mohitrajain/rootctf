@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= username %> Home </title>
+  <link rel="stylesheet" type="text/css" 
+      href="/static/css/styles_chat.css" />
+  <script src="/static/js/jquery.min.js"></script></head>
+<body>
+  <div>
+    <h3>Welcome : <%= username %>  </h3> <hr>
+    <a href="/logout">logout</a>
+    <button type="button" onclick="window.location = ' http://10.10.51.51:8080/user/' + document.cookie.split(';')[0].split('=')[1];">user Profile</button>
+    <h3>image input </h3>
+    <h3>rootctf{never_keep_your_site_crossed}</h3>
+    <form id="frmUploader" name="fileinfo"  enctype="multipart/form-data" onsubmit="return submitForm();">
+      <label>Select a file:</label><br>
+      <input type="file" name="imgUploader" required />
+      <input type="submit" value="Upload" name="submit" id="btnSubmit" />
+    </form>
+
+    <script type="text/javascript">
+      function submitForm() {
+        name = document.getElementsByName('imgUploader')[0].value;
+        arr = name.split('\\')[2].split('.');
+        console.log(name);
+        console.log(arr[arr.length - 1]);
+        if (arr[arr.length - 1] === 'jpg') {
+          var fd = new FormData(document.getElementById("frmUploader"));
+          fd.append("label", "WEBUPLOAD");
+          $.ajax({
+            url: "home",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false
+          }).done(function (data) {
+            console.log("node Output:");
+            console.log(data);
+            document.getElementsByName('tag')[0].value += name.split('\\')[2] + '">' ;
+            document.getElementById("ni").submit();
+          });
+          return false;
+        }
+        else{
+          alert('wrong format');
+        }
+      }
+
+    </script>
+
+    <form id="ni" action="/tag" method="POST">
+      <input type="hidden" name="tag" value=' <img id="your_submit " src="/static/Images/'>
+    </form>
+
+  </div>
+  <h5>Msg : <%= msg %></h5>
+  <hr>
+</body>
+</html>
